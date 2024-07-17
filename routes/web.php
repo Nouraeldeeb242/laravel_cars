@@ -1,10 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ExampleController;
+use Illuminate\Http\Request;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 // Route::get('nona', function () {
 //     return 'welcome_nowara';
@@ -94,3 +95,61 @@ Route::prefix('cars')->group(function () {
     });
 
 });
+
+// Route::fallback(function() {
+//     return redirect('/');
+//     });
+
+// Route::get('link', function(){
+//     $url = route ('myprofile');
+//     return "<a href='$url'>my_cv</a>";
+// });
+
+// Route::get('login', function(){
+//     return view('login');
+//     });->name('myprofile');
+
+// Route::get('cv', function(){
+//     return view('cv');
+//     });
+
+Route::get('login', [ExampleController::class, 'login']);
+
+// Route::post('cvv', function(){
+//     return view('cv');;
+//     })->name('zzz');
+
+Route::post('data', function () {
+    return view('cv');
+})->name('logged');
+
+// Route::get('link', function () {
+//     $url = route('w');
+//     return "<a href='$url'>go to welcome</a>";
+// });
+
+// Route::get('welcome', function () {
+//     return view('cv');
+// })->name('w');
+
+Route::get('cv', [ExampleController::class, 'cv']);
+
+Route::get('contacts', function () {
+    return view('contact');
+});
+
+// Route::post('contact', function(){
+//     return view('contact');
+//     })->name('cono');
+
+// Route::post('contact_us', function () {
+//     return "it is success";
+//    })->name('us');
+
+Route::get('con', [ExampleController::class, 'contact']);
+
+
+
+Route::post('us', function (Request $req) {
+    return ($req->input());
+})->name('us');
