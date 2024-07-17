@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\CarController;
 use App\Http\Controllers\ExampleController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -132,7 +135,7 @@ Route::post('data', function () {
 //     return view('cv');
 // })->name('w');
 
-Route::get('cv', [ExampleController::class, 'cv']);
+// Route::get('cv', [ExampleController::class, 'cv']);
 
 Route::get('contacts', function () {
     return view('contact');
@@ -146,10 +149,22 @@ Route::get('contacts', function () {
 //     return "it is success";
 //    })->name('us');
 
+Route::get('contacts', function () {
+    return view('contact');
+});
+
 Route::get('con', [ExampleController::class, 'contact']);
-
-
 
 Route::post('us', function (Request $req) {
     return ($req->input());
 })->name('us');
+
+// Route::post('us', function (Request $req) {
+//     print_r($req->input());
+// })->name('us');
+
+
+Route::get('car_create', [CarController::class, 'create'])->name('cars.create');
+
+
+Route::post('car_store', [CarController::class, 'store'])->name('cars.store');
