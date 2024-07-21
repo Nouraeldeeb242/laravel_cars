@@ -1,10 +1,8 @@
 <?php
 
-use App\Http\Controllers\CarController;
-use App\Http\Controllers\ExampleController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\CalssController;
+// use App\Http\Controllers\CarController;
 use Illuminate\Support\Facades\Route;
-
 
 Route::get('/', function () {
     return view('welcome');
@@ -42,62 +40,62 @@ Route::get('/', function () {
 //     return 'The id is: ' . $id;
 // });
 
-Route::prefix('accounts')->group(function () {
-    Route::get('', function () {
-        return 'welcom to your cars';
-    });
-    Route::get('admin', function () {
-        return 'the _king';
-    });
+// Route::prefix('accounts')->group(function () {
+//     Route::get('', function () {
+//         return 'welcom to your cars';
+//     });
+//     Route::get('admin', function () {
+//         return 'the _king';
+//     });
 
-    Route::get('user', function () {
-        return 'our pretty baby';
-    });
-});
+//     Route::get('user', function () {
+//         return 'our pretty baby';
+//     });
+// });
 
-Route::prefix('cars')->group(function () {
-    Route::get('', function () {
-        return 'welcom to your cars';
-    });
+// Route::prefix('cars')->group(function () {
+//     Route::get('', function () {
+//         return 'welcom to your cars';
+//     });
 
-    Route::prefix('accounts')->group(function () {
-        Route::get('', function () {
-            return 'This our website';
-        });
+//     Route::prefix('accounts')->group(function () {
+//         Route::get('', function () {
+//             return 'This our website';
+//         });
 
-        Route::get('admin', function () {
-            return 'the _king';
-        });
+//         Route::get('admin', function () {
+//             return 'the _king';
+//         });
 
-        Route::get('user', function () {
-            return 'our pretty baby';
-        });
-    });
+//         Route::get('user', function () {
+//             return 'our pretty baby';
+//         });
+//     });
 
-    Route::prefix('usa')->group(function () {
-        Route::get('ford', function () {
-            return 'FO_RD';
-        });
+//     Route::prefix('usa')->group(function () {
+//         Route::get('ford', function () {
+//             return 'FO_RD';
+//         });
 
-        Route::get('tesla', function () {
-            return 'TES_la';
-        });
-    });
-    Route::prefix('ger')->group(function () {
-        Route::get('mercedes', function () {
-            return 'Mer_Cedes*cars';
-        });
+//         Route::get('tesla', function () {
+//             return 'TES_la';
+//         });
+//     });
+//     Route::prefix('ger')->group(function () {
+//         Route::get('mercedes', function () {
+//             return 'Mer_Cedes*cars';
+//         });
 
-        Route::get('audi', function () {
-            return 'Au_di*cars';
-        });
+//         Route::get('audi', function () {
+//             return 'Au_di*cars';
+//         });
 
-        Route::get('volkswagen', function () {
-            return 'Volk_SWang*cars';
-        });
-    });
+//         Route::get('volkswagen', function () {
+//             return 'Volk_SWang*cars';
+//         });
+//     });
 
-});
+// });
 
 // Route::fallback(function() {
 //     return redirect('/');
@@ -116,15 +114,15 @@ Route::prefix('cars')->group(function () {
 //     return view('cv');
 //     });
 
-Route::get('login', [ExampleController::class, 'login']);
+// Route::get('login', [ExampleController::class, 'login']);
 
 // Route::post('cvv', function(){
 //     return view('cv');;
 //     })->name('zzz');
 
-Route::post('data', function () {
-    return view('cv');
-})->name('logged');
+// Route::post('data', function () {
+//     return view('cv');
+// })->name('logged');
 
 // Route::get('link', function () {
 //     $url = route('w');
@@ -137,9 +135,9 @@ Route::post('data', function () {
 
 // Route::get('cv', [ExampleController::class, 'cv']);
 
-Route::get('contacts', function () {
-    return view('contact');
-});
+// Route::get('contacts', function () {
+//     return view('contact');
+// });
 
 // Route::post('contact', function(){
 //     return view('contact');
@@ -149,22 +147,24 @@ Route::get('contacts', function () {
 //     return "it is success";
 //    })->name('us');
 
-Route::get('contacts', function () {
-    return view('contact');
-});
+// Route::get('contacts', function () {
+//     return view('contact');
+// });
 
-Route::get('con', [ExampleController::class, 'contact']);
+// Route::get('con', [ExampleController::class, 'contact']);
 
-Route::post('us', function (Request $req) {
-    return ($req->input());
-})->name('us');
+// Route::post('us', function (Request $req) {
+//     return ($req->input());
+// })->name('us');
 
 // Route::post('us', function (Request $req) {
 //     print_r($req->input());
 // })->name('us');
 
+// Route::get('car_create', [CarController::class, 'create'])->name('cars.create');
 
-Route::get('car_create', [CarController::class, 'create'])->name('cars.create');
+// Route::post('car_store', [CarController::class, 'store'])->name('cars.store');
 
+Route::get('calss_create', [CalssController::class, 'create'])->name('calsses.create');
 
-Route::post('car_store', [CarController::class, 'store'])->name('cars.store');
+Route::post('car_store', [CalssController::class, 'store'])->name('calsses.store');

@@ -1,13 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 
-use App\Models\Car;
+use App\Models\Calss;
 
-
-
-class CarController extends Controller
+class CalssController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,8 +21,7 @@ class CarController extends Controller
      */
     public function create()
     {
-        return view('add_car');
-
+        return view('add_class');
     }
 
     /**
@@ -31,22 +29,24 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
-        $car_title = 'bmw';
-        $price = '10';
-        $description = "test";
-        $published = true;
+        // dd($request);
+        $calss_name = 'arabic';
+        $price = '100';
+        $description = "this our language";
+        $capacity = true;
 
-        Car::create([
+        Calss::create([
 
-            'car_title' => $car_title,
+            'calss_name' => $calss_name,
             'price' => $price,
             'description' => $description,
-            'published' => $published,
+            'capacity' => $capacity,
         ]);
 
         return "inserted";
 
+    }
+        //
     }
 
     /**
